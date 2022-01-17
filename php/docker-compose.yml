@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+  phpservice:
+    build: 
+      context: .
+    container_name: 'php_container'
+    restart: 'always'
+    ports:
+      - ${SERVER_PORT_HTTP-80:80}
+    volumes: 
+      - ${DOCUMENT_ROOT-./www}:/var/www/html
+    environment:
+      LOCAL_IP_ADDRESS: ${LOCAL_IP_ADDRESS-192.0.0.1}

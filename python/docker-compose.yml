@@ -1,0 +1,12 @@
+version: "3"
+
+services:
+  pythonservice:
+    build: 
+      context: .
+    container_name: 'python_container'
+    restart: 'always'
+    ports:
+      - ${SERVER_PORT_HTTP-81:80}
+    volumes: 
+      - ${DOCUMENT_ROOT-./app}:/code/app
